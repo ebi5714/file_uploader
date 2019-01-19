@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+
+<% if @comment.image.attached? %>
+  <%= image_tag @comment.image.variant(resize: "200x200") %>
+<% end %>
+<%= link_to '編集', edit_comment_path(@comment) %> |
+<%= link_to '戻る', comments_path %>
