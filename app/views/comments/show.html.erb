@@ -1,7 +1,12 @@
 <p id="notice"><%= notice %></p>
+<% if @comment.icon.attached? %>
+  <td><%= image_tag @comment.icon.variant(resize: "200x200") %></td>
+<% end %>
 
-<% if @comment.image.attached? %>
-  <%= image_tag @comment.image.variant(resize: "200x200") %>
+<% if @comment.images.attached? %>
+  <% @comment.images.each do |image| %>
+    <td><%= image_tag image.variant(resize: "200x200") %></td>
+  <% end %>
 <% end %>
 <%= link_to '編集', edit_comment_path(@comment) %> |
 <%= link_to '戻る', comments_path %>
